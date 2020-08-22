@@ -21,6 +21,11 @@ namespace DiagnosticSourceSample
             {
                 value.Subscribe(new MyLibraryListener());
             }
+
+            if (value.Name == "HttpHandlerDiagnosticListener")
+            {
+                value.Subscribe(new HttpClientObserver());
+            }
         }
     }
 }
