@@ -13,4 +13,6 @@ Global
 		{36017CFD-1C77-4674-A306-B2CB28D2878F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36017CFD-1C77-4674-A306-B2CB28D2878F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
 EndGlobal

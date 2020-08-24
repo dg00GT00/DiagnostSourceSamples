@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace DiagnosticSourceSample
 {
-    public class HttpClientObserver : IObserver<KeyValuePair<string, object>>
+    public class HttpClientListener : IObserver<KeyValuePair<string, object>>
     {
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
@@ -31,7 +31,7 @@ namespace DiagnosticSourceSample
                         HttpRequestMessage requestMessage)
                     {
                         Console.WriteLine($"HTTP Request start: {requestMessage.Method} - " +
-                                          $" {requestMessage.RequestUri}");
+                                          $" {requestMessage.RequestUri} - parentActivity Id: {Activity.Current.ParentId}");
                     }
 
                     break;
@@ -42,7 +42,7 @@ namespace DiagnosticSourceSample
                         HttpResponseMessage responseMessage)
                     {
                         Console.WriteLine(
-                            $"Http Request finished: took {_stopwatch.ElapsedMilliseconds}ms, status code: {responseMessage.StatusCode}");
+                            $"Http Request finished: took {_stopwatch.ElapsedMilliseconds}ms, status code: {responseMessage.StatusCode} - parentActivity Id: {Activity.Current.ParentId}");
                     }
 
                     break;

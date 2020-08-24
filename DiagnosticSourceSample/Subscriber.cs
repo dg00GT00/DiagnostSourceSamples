@@ -24,7 +24,7 @@ namespace DiagnosticSourceSample
 
             if (value.Name == "HttpHandlerDiagnosticListener")
             {
-                value.Subscribe(new HttpClientObserver());
+                value.Subscribe(new HttpClientListener());
             }
         }
     }

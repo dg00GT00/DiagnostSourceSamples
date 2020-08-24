@@ -10,9 +10,11 @@ namespace DiagnosticSourceSample
         static async Task Main(string[] args)
         {
             Subscribe();
-            var number = new MySampleLibrary().GetRandomNumber();
-            var httpClient = new HttpClient();
-            await httpClient.GetAsync("https://kalapos.net/");
+            // var number = new MySampleLibrary().GetRandomNumber();
+            // var httpClient = new HttpClient();
+            // await httpClient.GetAsync("https://kalapos.net/");
+            await MySampleLibrary.DoThingAsync(1);
+
 
             Console.WriteLine("Hello World!");
         }

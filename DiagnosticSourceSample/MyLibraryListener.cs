@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace DiagnosticSourceSample
@@ -20,6 +21,19 @@ namespace DiagnosticSourceSample
         {
             switch (value.Key)
             {
+                case "DoThingAsync.Start":
+                    Console.WriteLine($"DoThingAsync.Start - activity id: {Activity.Current.Id}");
+                    break;
+                case "DoThingAsync.Stop":
+                    Console.WriteLine("DoThingAsync.Stop");
+                    if (Activity.Current != null)
+                    {
+                        foreach (var tag in Activity.Current.Tags)
+                        {
+                            Console.WriteLine($"{tag.Key} - {tag.Value}");
+                        }
+                    }
+                    break;
                 case "DiagnosticSourceSample.MySampleLibrary.StartGenerateRandomNumber":
                     Console.WriteLine("StartGenerateRandomNumber");
                     break;
